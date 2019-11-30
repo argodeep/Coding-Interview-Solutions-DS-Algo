@@ -42,4 +42,19 @@ console.log(getPairMatchesSum(ar, 8));
 
 // Q2. ENDS
 
+// Q3. Starts
+function sortedSingleArray(a, b) {
+  let sortedStack = {};
+  a.map(e => {
+     sortedStack[e] = e;
+  });
+  b.map(e => {
+     sortedStack[e] = e;
+  })
+  return Object.values(sortedStack)
+}
+
+console.log(sortedSingleArray([1, 11, 4, 6], [5, 8, 9, 10]));
+// Q3. Ends
+
 // Comming soon...
