@@ -9,4 +9,6 @@ Here in this repo you will get coding interview solutions from different compani
    - Explantion > 4 + 2 is equal to 6. Only 1 pair.
 3. Given two array unsorted array e.g. `[1, 2, 4, 6]` and `[5, 8, 9, 10]`.
    - Output a single array from them in sorted manner. E.g. `[1,2,4,5,6,8,9,10]` without using spread operator, array sort & concat mehtod.
+4. Find the index of an value in a sorted array using binary search e.g. `[1, 4, 6, 8, 10, 15, 27]` using recursive function.
+   - Output the index. E.g. `6`
 
