@@ -82,4 +82,32 @@ console.log('Got from js array findIndex method => ' + arr.findIndex(e => e === 
 
 // Q4 ENDS
 
+// Q5 STARTS
+let str1 = 'ab';
+let str2 = 'eidboaoo';
+
+
+function firstStringPermutations(s1, s2) {
+  let counter1 = s1.length - 1;
+  let counter2 = 0;
+
+  if (s1.length > 1) {
+    while (counter2 < s2.length) {
+      if (s2.substr(counter2, 1) === s1.substr(counter1, 1)) {
+        if (s2.substr(counter2 + 1, 1) === s1.substr(counter1 - 1, 1)) {
+          return true
+        } else {
+          counter2 += 1;
+        }
+      } else {
+        counter2 += 1;
+      }
+    }
+  } 
+  return false
+}
+
+console.log(firstStringPermutations(str1, str2));
+// Q5 ENDS
+
 // Comming soon...
