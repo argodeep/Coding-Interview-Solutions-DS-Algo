@@ -83,28 +83,41 @@ console.log('Got from js array findIndex method => ' + arr.findIndex(e => e === 
 // Q4 ENDS
 
 // Q5 STARTS
-let str1 = 'ab';
+let str1 = 'bdio';
 let str2 = 'eidboaoo';
 
-
 function firstStringPermutations(s1, s2) {
-  let counter1 = s1.length - 1;
-  let counter2 = 0;
-
-  if (s1.length > 1) {
-    while (counter2 < s2.length) {
-      if (s2.substr(counter2, 1) === s1.substr(counter1, 1)) {
-        if (s2.substr(counter2 + 1, 1) === s1.substr(counter1 - 1, 1)) {
-          return true
-        } else {
-          counter2 += 1;
-        }
-      } else {
-        counter2 += 1;
-      }
+  let allMutations = getAllPermutations(s1);
+  let index = 0;
+  while (index < allMutations.length) {
+    if (str2.indexOf(allMutations[index]) === 1) {
+      return true
     }
-  } 
+    index++
+  }
   return false
+}
+
+/* 
+  HElPER FUNCTION TO GET PERMUTATION
+*/
+function getAllPermutations(string) {
+  var results = [];
+
+  if (string.length === 1) {
+    results.push(string);
+    return results;
+  }
+
+  for (var i = 0; i < string.length; i++) {
+    var firstChar = string[i];
+    var charsLeft = string.substring(0, i) + string.substring(i + 1);
+    var innerPermutations = getAllPermutations(charsLeft);
+    for (var j = 0; j < innerPermutations.length; j++) {
+      results.push(firstChar + innerPermutations[j]);
+    }
+  }
+  return results;
 }
 
 console.log(firstStringPermutations(str1, str2));
