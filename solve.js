@@ -124,3 +124,29 @@ console.log(firstStringPermutations(str1, str2));
 // Q5 ENDS
 
 // Comming soon...
+
+
+function formattedString(str) {
+  let index = 0;
+  while (index < str.length) {
+    let curr = str.substr(index, 1);
+    let firstPart = str.substr(0, index);
+    let lastPart = str.substr(index + 1);
+    if (typeof curr === 'string' && curr === curr.toUpperCase() && index === 0) {
+      str = firstPart + str[index].toLowerCase() + lastPart;
+    } else if (typeof curr === 'string' && curr === curr.toUpperCase() && index !== 0) {
+      str = firstPart + '_' + str[index].toLowerCase() + lastPart;
+    }
+    index++
+  }
+  return str
+}
+
+const input = ['WindowsTen', 'macOS', 'resume', 'CamelCase'];
+
+let result = ''
+input.forEach(e => {
+  result += formattedString(e) + '\n'
+})
+
+console.log(result)
